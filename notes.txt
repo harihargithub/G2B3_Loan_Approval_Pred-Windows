@@ -1,0 +1,98 @@
+
+
+sudo mysql -u root -p
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '1504mysqlrp7@#';
+FLUSH PRIVILEGES;
+Exit;
+
+
+
+@harihargithub ➜ /workspaces/G2B3_Loan_Approval_Pred_Windows (master) $ sudo apt update
+Hit:1 https://packages.microsoft.com/repos/microsoft-ubuntu-focal-prod focal InRelease
+Hit:2 https://dl.yarnpkg.com/debian stable InRelease                                                
+Hit:3 https://repo.anaconda.com/pkgs/misc/debrepo/conda stable InRelease                            
+Hit:4 http://security.ubuntu.com/ubuntu focal-security InRelease                                       
+Hit:5 http://archive.ubuntu.com/ubuntu focal InRelease                                                 
+Hit:7 http://archive.ubuntu.com/ubuntu focal-updates InRelease       
+Hit:8 http://archive.ubuntu.com/ubuntu focal-backports InRelease                      
+Hit:6 https://packagecloud.io/github/git-lfs/ubuntu focal InRelease                   
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+10 packages can be upgraded. Run 'apt list --upgradable' to see them.
+@harihargithub ➜ /workspaces/G2B3_Loan_Approval_Pred_Windows (master) $ sudo apt install mysql-server
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+mysql-server is already the newest version (8.0.37-0ubuntu0.20.04.3).
+0 upgraded, 0 newly installed, 0 to remove and 10 not upgraded.
+@harihargithub ➜ /workspaces/G2B3_Loan_Approval_Pred_Windows (master) $ sudo service mysql start
+ * Starting MySQL database server mysqld                                                         [ OK ] 
+@harihargithub ➜ /workspaces/G2B3_Loan_Approval_Pred_Windows (master) $ sudo mysql_secure_installation
+
+Securing the MySQL server deployment.
+
+Connecting to MySQL using a blank password.
+
+VALIDATE PASSWORD COMPONENT can be used to test passwords
+and improve security. It checks the strength of password
+and allows the users to set only those passwords which are
+secure enough. Would you like to setup VALIDATE PASSWORD component?
+
+Press y|Y for Yes, any other key for No:  l
+
+Skipping password set for root as authentication with auth_socket is used by default.
+If you would like to use password authentication instead, this can be done with the "ALTER_USER" command.
+See https://dev.mysql.com/doc/refman/8.0/en/alter-user.html#alter-user-password-management for more information.
+
+By default, a MySQL installation has an anonymous user,
+allowing anyone to log into MySQL without having to have
+a user account created for them. This is intended only for
+testing, and to make the installation go a bit smoother.
+You should remove them before moving into a production
+environment.
+
+Remove anonymous users? (Press y|Y for Yes, any other key for No) : n
+
+ ... skipping.
+
+
+Normally, root should only be allowed to connect from
+'localhost'. This ensures that someone cannot guess at
+the root password from the network.
+
+Disallow root login remotely? (Press y|Y for Yes, any other key for No) : l
+
+ ... skipping.
+By default, MySQL comes with a database named 'test' that
+anyone can access. This is also intended only for testing,
+and should be removed before moving into a production
+environment.
+
+
+Remove test database and access to it? (Press y|Y for Yes, any other key for No) : k
+
+ ... skipping.
+Reloading the privilege tables will ensure that all changes
+made so far will take effect immediately.
+
+Reload privilege tables now? (Press y|Y for Yes, any other key for No) : y
+Success.
+
+All done! 
+
+It looks like you've successfully started the MySQL server and opted to skip some of the security enhancements recommended by the `mysql_secure_installation` script. Here's a summary of what you chose and its implications:
+
+1. **VALIDATE PASSWORD COMPONENT**: You chose not to set up the Validate Password component. This component helps enforce strong passwords by checking the strength of new passwords. Skipping this means you won't have automatic password strength validation.
+
+2. **Remove Anonymous Users**: You chose not to remove anonymous users. Anonymous users can access the MySQL server without a username, which is considered insecure for production environments.
+
+3. **Disallow Root Login Remotely**: You chose to skip this step, allowing the root user to log in from any host. This can be a security risk if the root password is weak or if the MySQL server is exposed to the internet.
+
+4. **Remove Test Database**: You chose not to remove the test database. This database can be accessed by anyone, which might be a security risk in production environments.
+
+5. **Reload Privilege Tables**: You agreed to reload the privilege tables, which is necessary to apply the changes you made.
+
+For a development environment, especially in a controlled setting like GitHub Codespaces, these choices might be acceptable. However, for production environments, it's recommended to follow security best practices, including setting strong passwords, removing anonymous users, disallowing remote root logins, and removing the test database.
+
+If you decide to enhance the security of your MySQL installation later, you can rerun `sudo mysql_secure_installation` and choose different options. Additionally, consider reviewing the MySQL documentation for best practices on securing your database server.
