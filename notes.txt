@@ -1,4 +1,10 @@
 
+sudo systemctl status mysql   or  sudo service mysql status
+if not running then
+sudo systemctl start mysql  or sudo service mysql start
+
+pip freeze > requirements.txt
+pip install -r requirements.txt
 
 sudo mysql -u root -p
 ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '1504mysqlrp7@#';
