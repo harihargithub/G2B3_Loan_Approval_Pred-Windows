@@ -1,17 +1,34 @@
 
+
+sudo mysql -u root -p
+
+@harihargithub ➜ /workspaces/G2B3_Loan_Approval_Pred_Windows (master) $ 
+mysql -u root -p -h 127.0.0.1 -P 3306   -    works without sudo ie connecting to MySQL using TCP/IP instead by specifying the host and port:
+
 sudo systemctl status mysql   or  sudo service mysql status
 if not running then
 sudo systemctl start mysql  or sudo service mysql start
 
 pip freeze > requirements.txt
 pip install -r requirements.txt
+@harihargithub ➜ /workspaces/G2B3_Loan_Approval_Pred_Windows (master) $ pip list
 
-sudo mysql -u root -p
-ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '1504mysqlrp7@#';
-FLUSH PRIVILEGES;
+pip freeze > requirements.txt is used to generate a requirements.txt file which contains a list of all the packages installed in the environment along with their versions. This is useful for ensuring consistency across different environments, making it easier for other developers to replicate your environment.
+
+pip install -r requirements.txt is used to install all the packages listed in the requirements.txt file. This command is typically run after cloning a project or when setting up a new environment to ensure that all the necessary Python packages are installed according to the versions specified in requirements.txt.
+
 Exit;
 
+On restart of codespace -
+1. source /workspaces/crispy-space-halibut-56rjvrwg9wqc7j5q/env/bin/activate
+2. pip install -r requirements.txt 
+3. @harihargithub ➜ /workspaces/G2B3_Loan_Approval_Pred_Windows (master) $ 
+mysql -u root -p -h 127.0.0.1 -P 3306 
+4. @harihargithub ➜ /workspaces/G2B3_Loan_Approval_Pred_Windows (master) $ /home/codespace/.python/current/bin/python3 /workspaces/G2B3_Loan_Approval_Pred_Windows/app.py
 
+       or
+       python3 -m venv env
+       source env/bin/activate
 
 @harihargithub ➜ /workspaces/G2B3_Loan_Approval_Pred_Windows (master) $ sudo apt update
 Hit:1 https://packages.microsoft.com/repos/microsoft-ubuntu-focal-prod focal InRelease
