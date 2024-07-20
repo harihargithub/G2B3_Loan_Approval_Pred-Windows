@@ -6,7 +6,7 @@ sudo mysql -u root -p
 mysql -u root -p -h 127.0.0.1 -P 3306   -    works without sudo ie connecting to MySQL using TCP/IP instead by specifying the host and port:
 
 sudo systemctl status mysql   or  sudo service mysql status
-if not running then
+if not running then mysql -u root -p -h 127.0.0.1 -P 3306
 sudo systemctl start mysql  or sudo service mysql start
 
 pip freeze > requirements.txt
